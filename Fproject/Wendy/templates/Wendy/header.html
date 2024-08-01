@@ -1,0 +1,296 @@
+
+{% load static%}
+{% block header%}<!--============ Secondary Navigation ===============================================================-->
+<div class="secondary-navigation">
+    <div class="container">
+        <ul class="left">
+            <li>
+            <span>
+                <i class="fa fa-phone"></i> +1 123 456 789
+            </span>
+            </li>
+        </ul>
+        <!--end left-->
+        <ul class="right">
+            <li>
+                <a href="/my-ads">
+                    <i class="fa fa-heart"></i>My Ads
+                </a>
+            </li>
+            <li>
+                {% if user.is_authenticated  %}
+                <a class="nav-link" href="{% url 'Wendy:logout' %}"><button type="submit" style="background-color: transparent;border: 0; color:#fff;font-size: 1.1rem;font-weight: 500;display: inline-block;text-decoration: none;">
+                    Log Out</button></a>
+                {% else%}
+                <a href="/sign-in">
+                    <i class="fa fa-sign-in"></i>Sign In
+                </a>
+                {%endif%}
+            </li>
+            <li>
+                <a href="/register">
+                    <i class="fa fa-pencil-square-o"></i>Register
+                </a>
+            </li>
+        </ul>
+        <!--end right-->
+    </div>
+    <!--end container-->
+</div>
+<!--============ End Secondary Navigation ===========================================================-->
+<!--============ Main Navigation ====================================================================-->
+<div class="main-navigation">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
+            <a class="navbar-brand" href="/index">
+                <img src="{% static "assets/img/logo.png" %}" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar">
+                <!--Main navigation list-->
+                <ul class="navbar-nav">
+                    <li class="nav-item active has-child">
+                        <a class="nav-link" href="#">Home</a>
+                        <ul class="child">
+                            <li class="nav-item">
+                                <a href="/index" class="nav-link">Home 1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/index-2" class="nav-link">Home 2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/index-3" class="nav-link">Home 3</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/index-4" class="nav-link">Home 4</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-child">
+                        <a class="nav-link" href="#">Listing</a>
+                        <!-- 1st level -->
+                        <ul class="child">
+                            <li class="nav-item has-child">
+                                <a href="#" class="nav-link">Grid</a>
+                                <!-- 2nd level -->
+                                <ul class="child">
+                                    <li class="nav-item">
+                                        <a href="/listing-grid-full-width" class="nav-link">Full Width</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/listing-grid-sidebar" class="nav-link">With Sidebar</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/listing-grid-compact-sidebar" class="nav-link">Compact With Sidebar</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/listing-grid-compact-full-width" class="nav-link">Compact Full Width</a>
+                                    </li>
+                                </ul>
+                                <!-- end 2nd level -->
+                            </li>
+                            <li class="nav-item has-child">
+                                <a href="#" class="nav-link">List</a>
+                                <!-- 2nd level -->
+                                <ul class="child">
+                                    <li class="nav-item">
+                                        <a href="/listing-list-full-width" class="nav-link">Full Width</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/listing-list-sidebar" class="nav-link">With Sidebar</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/listing-list-compact-sidebar" class="nav-link">Compact With Sidebar</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/listing-list-compact-full-width" class="nav-link">Compact Full Width</a>
+                                    </li>
+                                </ul>
+                                <!-- end 2nd level -->
+                            </li>
+                            <li class="nav-item has-child">
+                                <a href="#" class="nav-link">Masonry</a>
+                                <!-- 2nd level -->
+                                <ul class="child">
+                                    <li class="nav-item">
+                                        <a href="/listing-masonry-full-width" class="nav-link">Full Width</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/listing-masonry-sidebar" class="nav-link">With Sidebar</a>
+                                    </li>
+                                </ul>
+                                <!-- end 2nd level -->
+                            </li>
+                            <li class="nav-item has-child">
+                                <a href="#" class="nav-link">Single</a>
+                                <!-- 2nd level -->
+                                <ul class="child">
+                                    <li class="nav-item">
+                                        <a href="/single-listing-1" class="nav-link">Single 1</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/single-listing-2" class="nav-link">Single 2</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/single-listing-3" class="nav-link">Single 3</a>
+                                    </li>
+                                </ul>
+                                <!-- end 2nd level -->
+                            </li>
+                        </ul>
+                        <!-- end 1st level -->
+                    </li>
+                    <li class="nav-item has-child">
+                        <a class="nav-link" href="#">Pages</a>
+                        <!-- 2nd level -->
+                        <ul class="child">
+                            <li class="nav-item">
+                                <a href="/sellers" class="nav-link">Sellers</a>
+                            </li>
+                            <li class="nav-item has-child">
+                                <a href="#" class="nav-link">Seller Detail</a>
+                                <!-- 3rd level -->
+                                <ul class="child">
+                                    <li class="nav-item">
+                                        <a href="/seller-detail-1" class="nav-link">Seller Detail
+                                            1</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/seller-detail-2" class="nav-link">Seller Detail
+                                            2</a>
+                                    </li>
+                                </ul>
+                                <!-- end 3rd level -->
+                            </li>
+                            <li class="nav-item">
+                                <a href="/blog" class="nav-link">Blog</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/blog-post" class="nav-link">Blog Post</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/submit" class="nav-link">Submit Ad</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/pricing" class="nav-link">Pricing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/faq" class="nav-link">FAQ</a>
+                            </li>
+                        </ul>
+                        <!-- end 2nd level -->
+                    </li>
+                    <li class="nav-item has-child">
+                        <a class="nav-link" href="#">Extras</a>
+                        <!--1st level -->
+                        <ul class="child">
+                            <li class="nav-item has-child">
+                                <a href="#" class="nav-link">Grid Variants</a>
+                                <ul class="child">
+                                    <li class="nav-item">
+                                        <a href="/listing-grid-4-items" class="nav-link">4 Items</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/listing-grid-3-items" class="nav-link">3 Items</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/listing-grid-2-items" class="nav-link">2 Items</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item has-child">
+                                <a href="#" class="nav-link">User Panel</a>
+                                <ul class="child">
+                                    <li class="nav-item">
+                                        <a href="/my-profile" class="nav-link">My Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/my-ads" class="nav-link">My Ads</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/change-password" class="nav-link">Change
+                                            Password</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/sign-in" class="nav-link">Sign In</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/register" class="nav-link">Register</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/elements" class="nav-link">Elements</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/typography" class="nav-link">Typography</a>
+                            </li>
+                            <li class="nav-item has-child">
+                                <a href="#" class="nav-link">Nested Navigation</a>
+                                <!--2nd level -->
+                                <ul class="child">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Level 2</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link">Level 2</a>
+                                    </li>
+                                    <li class="nav-item has-child">
+                                        <a href="#" class="nav-link">Level 2</a>
+                                        <!--3rd level -->
+                                        <ul class="child">
+                                            <li class="nav-item has-child">
+                                                <a href="#" class="nav-link">Level 3</a>
+                                                <!--4th level -->
+                                                <ul class="child">
+                                                    <li class="nav-item">
+                                                        <a href="#" class="nav-link">Level 4</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a href="#" class="nav-link">Level 4</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a href="#" class="nav-link">Level 4</a>
+                                                    </li>
+                                                </ul>
+                                                <!-- end 4th level-->
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link">Level 3</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#" class="nav-link">Level 3</a>
+                                            </li>
+                                        </ul>
+                                        <!--end 3rd level-->
+                                    </li>
+                                </ul>
+                                <!-- end 2nd level -->
+                            </li>
+                            <li class="nav-item">
+                                <a href="/image-header" class="nav-link">Image Header</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/messaging" class="nav-link">Messages</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/submit" class="btn btn-primary text-caps btn-rounded btn-framed">Submit Ad</a>
+                    </li>
+                </ul>
+                <!--Main navigation list-->
+            </div>
+            <!--end navbar-collapse-->
+        </nav>
+        <!--end navbar-->
+    </div>
+    <!--end container-->
+</div>
+<!--============ End Main Navigation ================================================================-->
+        {% endblock  %}
