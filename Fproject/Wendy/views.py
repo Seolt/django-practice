@@ -11,7 +11,9 @@ from django.conf import settings
 from django.templatetags.static import static
 from .forms import RegistrationForm, UserProfileForm, UserPermissionsForm, CustomAuthenticationForm
 from .models import CustomUser
-
+import matplotlib.pyplot as plt
+import io
+import urllib, base64
 def index(request):
     return render(request, 'Wendy/index.html')
 def dynamic_url(request, url):
@@ -148,3 +150,32 @@ def manage_permissions(request):
         forms = {user.id: UserPermissionsForm(instance=user) for user in users}
 
     return render(request, 'Wendy/manage-permissions.html', {'forms': forms})
+import matplotlib
+matplotlib.use('Agg')  # Use the Agg backend for rendering plots
+def pandas(request):
+    plt.plot(range(10))
+    fig = plt.gcf()
+
+    buf = io.BytesIO()
+
+    #fig.savefig('test.png', format='png')
+    # fig.savefig(buf, format='png')
+    fig.savefig(buf, format='pdf')
+    buf.seek(0)
+
+    string = base64.b64encode(buf.read())
+
+    #print(string)
+
+    uri  = urllib.parse.quote(string)
+
+    print(uri)
+
+    context = {
+        'test' : 'testesteste',
+        'data1' : uri,
+        'data2' : uri,
+        'data3' : uri,
+    }
+    
+    return render(request, 'Wendy/pandas.html',context)

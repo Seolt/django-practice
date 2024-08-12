@@ -18,6 +18,7 @@ urlpatterns = [
     path('my-ads/',views.my_ads, name='my_ads'),
     path('sold-items/',views.sold_items, name='sold_items'),
     path('manage-permissions/', views.manage_permissions, name='manage_permissions'),
+    path('pandas/', views.pandas, name='pandas'),
     path('<str:url>/', views.dynamic_url, name='url'),
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
